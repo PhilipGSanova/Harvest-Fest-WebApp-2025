@@ -83,7 +83,7 @@ export default function Scores() {
 
   const handleBack = () => navigate(-1);
 
-  if (loading) return <div className="scores-container">Loading...</div>;
+  if (loading) return <div className="scores-container">Loading Player Rankings...</div>;
   if (error) return <div className="scores-container">Error: {error}</div>;
 
   return (

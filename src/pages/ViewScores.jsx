@@ -23,16 +23,18 @@ export default function Scores() {
 
       if (error) throw error;
 
-      setPlayers(prevPlayers => {
+      setPlayers((prevPlayers) => {
         const newPlayers = data.map((player, index) => ({
           ...player,
-          rank: index + 1
+          rank: index + 1,
         }));
 
         // Calculate ranking changes
         const changes = {};
-        newPlayers.forEach(newPlayer => {
-          const oldPlayer = prevPlayersRef.current.find(p => p.PlayerId === newPlayer.PlayerId);
+        newPlayers.forEach((newPlayer) => {
+          const oldPlayer = prevPlayersRef.current.find(
+            (p) => p.PlayerId === newPlayer.PlayerId
+          );
           if (oldPlayer) {
             if (newPlayer.rank < oldPlayer.rank) changes[newPlayer.PlayerId] = 'up';
             if (newPlayer.rank > oldPlayer.rank) changes[newPlayer.PlayerId] = 'down';
@@ -41,7 +43,7 @@ export default function Scores() {
 
         setHighlightChanges(changes);
         setTimeout(() => setHighlightChanges({}), 2000);
-        
+
         prevPlayersRef.current = newPlayers;
         return newPlayers;
       });
@@ -83,75 +85,86 @@ export default function Scores() {
     return (
       player.Name.toLowerCase().startsWith(query) ||
       player.PlayerId.toString().startsWith(query)
-    )
+    );
   });
 
-  if (loading) return (
-    <div className="scores-container">
-      <div className="scores-background-image"></div>
-      <p>Loading scores...</p>
-    </div>
-  );
+  const handleBack = () => {
+    navigate('/'); // Change this path to your dashboard or home page route
+  };
 
-  if (error) return (
-    <div className="scores-container">
-      <div className="scores-background-image"></div>
-      <p className="error">Error: {error}</p>
-      <button onClick={handleBack}>Back to Dashboard</button>
-    </div>
-  );
+  if (loading)
+    return (
+      <div className="scores-container">
+        <div className="scores-background-image"></div>
+        <p>Loading scores...</p>
+      </div>
+    );
+
+  if (error)
+    return (
+      <div className="scores-container">
+        <div className="scores-background-image"></div>
+        <p className="error">Error: {error}</p>
+        <button onClick={handleBack}>Back to Dashboard</button>
+      </div>
+    );
 
   return (
     <div className="scores-container">
       <div className="scores-background-image"></div>
       <h1>Live Player Rankings</h1>
-      
+
       <div className="search-container">
-        <FaSearch className="search-icon" onClick={() => setShowSearch(!showSearch)} />
-          {showSearch && (
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search by Player ID or Name"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          )}
+        <FaSearch
+          className="search-icon"
+          onClick={() => setShowSearch(!showSearch)}
+          aria-label="Toggle search"
+        />
+        {showSearch && (
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search by Player ID or Name"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        )}
       </div>
+
       <div className="table-wrapper">
-        <div className="scores-content">
-          {players.length > 0 ? (
-            <table className="scores-table">
-              <thead>
-                <tr>
-                  <th>Rank</th>
-                  <th>Player ID</th>
-                  <th>Name</th>
-                  <th>Total Points</th>
+        {filteredPlayers.length > 0 ? (
+          <table className="scores-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Player ID</th>
+                <th>Name</th>
+                <th>Total Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredPlayers.map((player) => (
+                <tr
+                  key={player.PlayerId}
+                  className={highlightChanges[player.PlayerId] || ''}
+                >
+                  <td>{player.rank}</td>
+                  <td>{player.PlayerId}</td>
+                  <td>{player.Name}</td>
+                  <td>{player.Total}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {filteredPlayers.map((player) => (
-                  <tr 
-                    key={player.PlayerId}
-                    className={highlightChanges[player.PlayerId] || ''}
-                  >
-                    <td>{player.rank}</td>
-                    <td>{player.PlayerId}</td>
-                    <td>{player.Name}</td>
-                    <td>{player.Total}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <p>No players found</p>
-          )}
-        </div>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p>No matching players found.</p>
+        )}
       </div>
 
       <div className="fixed-actions">
-        <button onClick={fetchScores} className="refresh-btn">Refresh Scores</button>
+        <button onClick={fetchScores} className="refresh-btn">
+          Refresh Scores
+        </button>
       </div>
     </div>
   );
