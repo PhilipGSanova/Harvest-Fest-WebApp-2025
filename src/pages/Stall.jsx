@@ -24,7 +24,10 @@ export default function Stall() {
     allowRoute('Scores'); // Ensure the route is allowed
     navigate('/Scores'); // Navigation to Scores page
   };
-
+  const handleViewBalance = () => {
+        allowRoute('Balance'); // Ensure the route is allowed
+        navigate('/Balance'); // Navigate to the Balance page
+    };
   const handleAddPoints = () => {
     allowRoute('AddPoints'); // Ensure the route is allowed
     navigate('/AddPoints'); // <-- Make sure this route is configured in your router
@@ -39,6 +42,7 @@ export default function Stall() {
       <div className="stall-actions">
         <button onClick={handleAddPoints}>Add Points</button>
         <button onClick={handleViewScores}>View Scores</button>
+        <button onClick={handleViewBalance}>Check Balance</button>
         <button onClick={handleLogout}>Logout</button>
       </div>
     </div>
