@@ -1,0 +1,656 @@
+/* Scores.css - Complete Styling with Real-Time Features */
+.manage-players-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  position: relative;
+  color: rgba(255,255,255,1);
+}
+/* Background styling */
+.manage-players-background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://c1.staticflickr.com/9/8317/8063591182_677f0c2148_b.jpg') center center / cover no-repeat;
+  z-index: -1;
+  filter: blur(7px);
+  opacity: 0.5;
+}
+/* Header styling */
+.manage-players-container h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(255, 0, 0, 0.5);
+}
+.table-scroll-container {
+  width: 90%;
+  max-width: 1000px;
+  max-height: 70vh;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Table styling */
+.points-table {
+  width: 100%;
+  height: 50%;
+  border-collapse: collapse;
+  align-self: center;
+  color: white;
+}
+.points-table tr.selected-row {
+  background-color: rgba(56, 130, 206, 0.5) !important;
+}
+
+.points-table thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.points-table tbody {
+  display: block;
+  overflow-y: auto;
+  max-height: calc(70vh - 60px); /* Adjust based on your header height */
+  color: white;
+}
+.points-table tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.points-table th {
+  background-color: rgb(56, 130, 206, 0.8);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.points-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+.points-table tbody::-webkit-scrollbar {
+  width: 8px;
+}
+.points-table tbody::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+.points-table tbody::-webkit-scrollbar-thumb {
+  background-color: rgba(56, 130, 206, 0.7);
+  border-radius: 4px;
+}
+.points-table tbody::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(56, 130, 206, 1);
+}
+/* Zebra striping */
+.points-table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/* Hover effects */
+.points-table tr:hover {
+  background-color: rgb(255, 255, 255, 0.4);
+}
+/* Button styling */
+.manages-players-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.manage-players-actions button {
+  padding: 0.75rem 1.5rem;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 150px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* Back button */
+.manage-players-actions button:first-child {
+  background-color: #3182ce;
+}
+
+.manage-players-actions button:first-child:hover {
+  background-color: #2563eb;
+}
+/* Refresh button */
+.refresh-btn {
+  background-color: #d49d43;
+}
+
+.refresh-btn:hover {
+  background-color: #fbc500;
+}
+
+/* Real-time connection indicator */
+.realtime-indicator {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.realtime-indicator::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background-color: #4CAF50;
+  animation: pulse 2s infinite;
+}
+
+/*Seacrh Icon Stylings */
+.search-container {
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 5;
+}
+
+.search-icon {
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.search-icon:hover {
+  transform: scale(1.2);
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  width: 220px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background-color: #2d3748;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: white;
+}
+.modal-header {
+  position: relative;
+  padding: 15px 20px 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 5px 10px;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.modal-content {
+  position: relative;
+  padding: 20px;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;;
+  border: 1px solid #4a5568;
+  background-color: #1a202c;
+  color: white;
+}
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.save-btn,
+.cancel-btn,
+.delete-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #81eef0;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #ffc107;
+  color: black;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+/* Delete Confirmation Dialog Styles */
+.delete-confirm-modal {
+  background-color: #2d3748;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+  text-align: center;
+}
+
+.delete-confirm-message {
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.delete-confirm-warning {
+  color: #e53e3e;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.delete-confirm-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.delete-confirm-buttons button {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.delete-cancel-btn {
+  background-color: #4a5568;
+  color: white;
+}
+
+.delete-cancel-btn:hover {
+  background-color: #2d3748;
+}
+
+.delete-confirm-btn {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.delete-confirm-btn:hover:not(:disabled) {
+  background-color: #c53030;
+}
+
+.delete-confirm-btn:disabled {
+  background-color: #4a5568;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Loading spinner for delete action */
+.deleting-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.5rem;
+}
+.notification.error {
+  white-space: pre-line;
+  text-align: left;
+  background-color: rgba(229, 62, 62, 0.2);
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 4px solid #e53e3e;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Real-time highlight animations */
+@keyframes rankUp {
+  0% { background-color: rgba(76, 175, 80, 0.5); }
+  100% { background-color: transparent; }
+}
+
+@keyframes rankDown {
+  0% { background-color: rgba(244, 67, 54, 0.5); }
+  100% { background-color: transparent; }
+}
+
+.rank-up {
+  animation: rankUp 2s ease-out;
+}
+
+.rank-down {
+  animation: rankDown 2s ease-out;
+}
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(0.95); opacity: 1; }
+}
+
+/* Error message styling */
+.error {
+  color: #e53e3e;
+  background-color: rgba(229, 62, 62, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* Loading indicator */
+.loading-indicator {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.actions-buttons{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-self: center;
+    flex-wrap: wrap;
+}
+
+.action-buttons button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 150px;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #3182ce;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #2563eb;
+}
+
+.delete-btn {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c53030;
+}
+
+.action-buttons button:disabled {
+  background-color: #4a5568;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+/* Responsive Design for Mobile and Tablets - Keeping All Columns */
+@media (max-width: 1024px) {
+  /* Tablet styles */
+  .manage-players-container {
+    padding: 1.5rem;
+  }
+  
+  .table-scroll-container {
+    width: 95%;
+    max-height: 65vh;
+    overflow-x: auto; /* Enable horizontal scrolling */
+  }
+  
+  .points-table {
+    min-width: 700px; /* Ensure table maintains minimum width */
+  }
+  
+  .points-table th,
+  .points-table td {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .manage-players-actions {
+    flex-wrap: wrap;
+  }
+  
+  .manage-players-actions button {
+    padding: 0.6rem 1.2rem;
+    min-width: 120px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Large mobile/small tablet styles */
+  .manage-players-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .table-scroll-container {
+    width: 98%;
+    max-height: 60vh;
+  }
+  
+  .points-table th,
+  .points-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Make table horizontally scrollable */
+  .points-table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile phone styles */
+  .manage-players-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .manage-players-container h1 {
+    font-size: 1.7rem;
+  }
+  
+  .table-scroll-container {
+    width: 100%;
+    border-radius: 0;
+    max-height: 65vh;
+  }
+  
+  .points-table {
+    min-width: 550px; /* Minimum width to keep all columns */
+  }
+  
+  .points-table th,
+  .points-table td {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+  
+  .manage-players-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 90%;
+    margin-top: 1rem;
+  }
+  
+  .manage-players-actions button {
+    width: 100%;
+    padding: 0.7rem;
+  }
+  
+  .fixed-actions {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+  
+  .fixed-actions button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Adjust background for mobile */
+  .manage-players-background-image {
+    filter: blur(4px);
+  }
+  
+  /* Smaller real-time indicator */
+  .realtime-indicator {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+}
+
+/* Orientation-specific adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .table-scroll-container {
+    max-height: 50vh;
+  }
+  
+  .manage-players-actions {
+    margin-top: 1rem;
+  }
+}
+
+/* High-density displays */
+@media 
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi) {
+  .points-table {
+    border-width: 0.5px;
+  }
+}
+
+/* Horizontal scrollbar styling */
+.table-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-scroll-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb {
+  background-color: rgba(56, 130, 206, 0.7);
+  border-radius: 4px;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(56, 130, 206, 1);
+}

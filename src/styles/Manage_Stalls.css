@@ -1,0 +1,360 @@
+.manage-stalls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.manage-stalls-background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://c1.staticflickr.com/9/8317/8063591182_677f0c2148_b.jpg') center center / cover no-repeat;
+  z-index: -1;
+  filter: blur(7px);
+  opacity: 0.5;
+}
+
+.manage-stalls-container h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.table-wrapper {
+  width: 100%;
+  max-width: 95vw;
+  max-height: 70vh;
+  overflow: auto;
+  margin-top: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-access-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+.user-access-table tr.selected-row{
+  background-color: rgba(56, 130, 206, 0.5) !important;
+}
+.user-access-table th,
+.user-access-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.user-access-table th {
+  position: sticky;
+  top: 0;
+  background-color: rgba(56, 130, 206, 0.8);
+  font-weight: bold;
+}
+
+.user-access-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.error {
+  color: #ff9999;
+}
+
+/* Scrollbar styling */
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #2d3748;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  color: white;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: white;
+}
+.modal-header {
+  position: relative;
+  padding: 15px 20px 0;
+  margin-bottom: 15px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 5px 10px;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.modal-content {
+  position: relative;
+  padding: 20px;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #4a5568;
+  background-color: #1a202c;
+  color: white;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-buttons .submit-btn {
+  background-color: #38a169;
+  color: white;
+}
+
+.modal-buttons .submit-btn:hover {
+  background-color: #2f855a;
+}
+/* Delete Confirmation Dialog Styles */
+.delete-confirm-modal {
+  background-color: #2d3748;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+  text-align: center;
+}
+
+.delete-confirm-message {
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.delete-confirm-warning {
+  color: #e53e3e;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.delete-confirm-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.delete-confirm-buttons button {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.delete-cancel-btn {
+  background-color: #4a5568;
+  color: white;
+}
+
+.delete-cancel-btn:hover {
+  background-color: #2d3748;
+}
+
+.delete-confirm-btn {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.delete-confirm-btn:hover:not(:disabled) {
+  background-color: #c53030;
+}
+
+.delete-confirm-btn:disabled {
+  background-color: #4a5568;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Loading spinner for delete action */
+.deleting-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.5rem;
+}
+.notification.error {
+  white-space: pre-line;
+  text-align: left;
+  background-color: rgba(229, 62, 62, 0.2);
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 4px solid #e53e3e;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .manage-stalls-container {
+    padding: 1rem;
+  }
+  
+  .manage-stalls-container h1 {
+    font-size: 2rem;
+  }
+  
+  .user-access-table th,
+  .user-access-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+/* Previous styles remain the same... */
+
+/* Add these new styles at the end of the file */
+
+.selected-row {
+  background-color: rgba(56, 130, 206, 0.3) !important;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.action-buttons button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 150px;
+  font-weight: bold;
+}
+
+.create-btn {
+  background-color: #38a169;
+  color: white;
+}
+
+.create-btn:hover {
+  background-color: #2f855a;
+}
+
+.edit-btn {
+  background-color: #3182ce;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #2563eb;
+}
+
+.delete-btn {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c53030;
+}
+
+.action-buttons button:disabled {
+  background-color: #4a5568;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Responsive styles for buttons */
+@media screen and (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .action-buttons button {
+    width: 100%;
+  }
+}

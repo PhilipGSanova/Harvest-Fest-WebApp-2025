@@ -1,0 +1,176 @@
+.add-points-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.add-points-background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://c1.staticflickr.com/9/8317/8063591182_677f0c2148_b.jpg') center center / cover no-repeat;
+  z-index: -1;
+  filter: blur(7px);
+  opacity: 0.5;
+}
+
+.add-points-container h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.add-points-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  max-width: 400px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.add-points-box input {
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 1rem;
+  color: #ffffff;
+  border: none;
+  border-radius: 0px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.add-points-box input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.add-points-box input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  transition: opacity 0.2s ease;
+}
+
+.add-points-box input:focus::placeholder {
+  opacity: 0;
+}
+
+.add-points-box button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  width: 50%;
+  background-color: #38a169;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: bold;
+}
+
+.add-button-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.add-points-box button:hover {
+  background-color: #2f855a;
+  transform: translateY(-1px);
+}
+
+.add-points-box button:disabled {
+  background-color: #4a5568;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Simplified message styles (text only) */
+.add-points-message {
+  margin-top: 1rem;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.add-points-message.success {
+  color: #a7f3a0; /* Light green */
+  text-shadow: 0 0 5px rgba(0, 100, 0, 0.5);
+}
+
+.add-points-message.error {
+  color: #ff9999; /* Light red */
+  text-shadow: 0 0 5px rgba(100, 0, 0, 0.5);
+}
+
+.player-name-display {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Simplified Total Points display */
+.player-details {
+  margin-top: 1rem;
+  color: white;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.player-details h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+.player-details h3 strong {
+  font-weight: bold;
+  color: #a7f3a0; /* Matching success color */
+}
+
+/* Animation for messages */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.add-points-message, .player-details {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .add-points-container h1 {
+    font-size: 2rem;
+  }
+  
+  .add-points-box {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .add-points-box input {
+    font-size: 0.9rem;
+  }
+
+  .add-points-box button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,86 @@
+.create-player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.create-player-background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://c1.staticflickr.com/9/8317/8063591182_677f0c2148_b.jpg') center center / cover no-repeat;
+  z-index: -1;
+  filter: blur(7px);
+  opacity: 0.5;
+}
+
+.create-player-container h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.create-player-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  max-width: 400px;
+}
+
+.create-player-box input {
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 1rem;
+  color: #ffffff;
+  border: none;
+  border-radius: 0px;
+  text-align: center;
+}
+
+.create-player-box input::placeholder {
+  color: white;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.create-player-box input:focus::placeholder {
+  opacity: 0;
+}
+
+.create-button-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.create-player-box button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  width: 50%;
+  background-color: #38a169;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-player-box button:hover {
+  background-color: #2f855a;
+}
+
+.create-player-message {
+  margin-top: 1rem;
+  color: white;
+}

@@ -1,0 +1,148 @@
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Fixed full-screen background */
+.admin-background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://c1.staticflickr.com/9/8317/8063591182_677f0c2148_b.jpg') center center / cover no-repeat;
+  z-index: -1;
+  filter: blur(7px);
+  opacity: 0.5;
+}
+
+.admin-container h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.admin-container p {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.admin-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
+}
+
+.admin-actions button {
+  padding: 0.75rem 1.5rem;
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 150px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.admin-actions button:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Different color for Create Stall button */
+.admin-actions button:nth-child(2) {
+  background-color: #38a169;
+}
+.admin-actions button:nth-child(2):hover {
+  background-color: #2f855a;
+}
+
+/* Different color for View Scores button */
+.admin-actions button:nth-child(3) {
+  background-color: #d49d43;
+}
+.admin-actions button:nth-child(3):hover {
+  background-color: #fbc500;
+}
+
+/* Different color for Logout button */
+.admin-actions button:last-child {
+  background-color: #e53e3e;
+}
+.admin-actions button:last-child:hover {
+  background-color: #c53030;
+}
+
+/* Mobile layout */
+@media screen and (max-width: 480px) {
+  .admin-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .admin-actions button {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  /* First row: Create Player and Create Stall */
+  .admin-actions button:nth-child(1),
+  .admin-actions button:nth-child(2) {
+    grid-row: 1;
+  }
+
+  /* Second row: View Scores and Logout */
+  .admin-actions button:nth-child(3),
+  .admin-actions button:nth-child(4) {
+    grid-row: 2;
+  }
+
+  /* Column positions */
+  .admin-actions button:nth-child(1),
+  .admin-actions button:nth-child(3) {
+    grid-column: 1;
+  }
+
+  .admin-actions button:nth-child(2),
+  .admin-actions button:nth-child(4) {
+    grid-column: 2;
+  }
+}
+
+/* Tablet layout */
+@media screen and (max-width: 768px) {
+  .admin-container h1 {
+    font-size: 2rem;
+  }
+  
+  .admin-container p {
+    font-size: 1rem;
+  }
+  
+  .admin-actions {
+    gap: 0.75rem;
+  }
+  
+  .admin-actions button {
+    min-width: 120px;
+    font-size: 0.9rem;
+  }
+}
