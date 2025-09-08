@@ -32,4 +32,47 @@ __Tech Stack__
 - Styling: CSS3, Flexbox, responsive media queries<br>
 - State Management: React hooks (useState, useEffect, useRef, useCallback, useMemo)
 
-### Installation
+## Installation
+__1. Clone the repository:__
+```bash
+git clone https://github.com/PhilipGSanova/Harvest-Fest-WebApp-2025.git
+cd your-destination-directory
+```
+__2. Install dependencies:__
+```bash
+npm install
+```
+__3. Configure Supabase:__
+- Create a Supabase project at https://supabase.com.<br>
+- Create necessary tables: PointsTable, UserAccess, Any new tables required for you<br>
+- Add your Supabase URL and API key in supabaseClient.js.
+__4. Run the application:__
+```bash
+npm run dev
+```
+The application will run at http://localhost:3000
+
+## File Structure
+```bash
+/public
+  images.jpg
+  logo.svg
+/src
+  pages/
+    Home.jsx
+    Login.jsx
+    Scores.jsx
+    ...
+  styles/
+    Home.css
+    Login.css
+    Scores.css
+    ...
+  App.jsx
+  main.jsx
+  index.css
+  NavigationContext.jsx
+  ProtectedRoutes.jsx
+  supabaseClient.ts
+index.html
+```
