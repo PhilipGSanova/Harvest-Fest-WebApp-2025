@@ -3,10 +3,10 @@
 A React + Supabase web application for real-time player ranking and stall management, designed for events or competitions. This app allows you to create players, manage stalls, add points, and track live scores, all in a responsive and user-friendly interface.
 
 ## Features
-*Player Management*
-Create Player: Add a new player with a unique Player ID, Name, and initialize points.
-Edit Player: Update player details and scores.
-Delete Player: Remove players from the system.
+__Player Management__
+- Create Player: Add a new player with a unique Player ID, Name, and initialize points.<br>
+- Edit Player: Update player details and scores.<br>
+- Delete Player: Remove players from the system.
 
 Stall Management
 Create Stall: Add stalls with unique IDs and assign incharges.
