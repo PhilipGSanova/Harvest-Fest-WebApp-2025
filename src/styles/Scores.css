@@ -10,6 +10,7 @@
   position: relative;
   color: rgba(255,255,255,1);
 }
+
 /* Background styling */
 .scores-background-image {
   position: fixed;
@@ -22,6 +23,7 @@
   filter: blur(7px);
   opacity: 0.5;
 }
+
 /* Header styling */
 .scores-container h1 {
   font-size: 2.5rem;
@@ -29,6 +31,7 @@
   margin-bottom: 1.5rem;
   text-shadow: 1px 1px 3px rgba(255, 0, 0, 0.5);
 }
+
 .table-scroll-container {
   width: 90%;
   max-width: 1000px;
@@ -40,30 +43,35 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding-top: 2rem;
 }
+
 /* Table styling */
 .scores-table {
   width: 100%;
-  height: 50%;
   border-collapse: collapse;
   align-self: center;
   background-color: rgb(31, 89, 196);
+  table-layout: fixed; /* force equal column widths */
 }
+
 .scores-table thead {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
+
 .scores-table tbody {
   display: block;
   overflow-y: auto;
-  max-height: calc(70vh - 60px); /* Adjust based on your header height */
+  max-height: calc(70vh - 60px);
   color: white;
 }
+
 .scores-table tr {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
+
 .scores-table th {
   background-color: rgb(255, 0, 0);
   color: white;
@@ -73,11 +81,15 @@
   top: 0;
   z-index: 2;
 }
+
 .scores-table td {
   padding: 0.75rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
+  white-space: normal;    /* allow wrapping */
+  word-break: break-word; /* break long words if needed */
 }
+
 .scores-table tbody::-webkit-scrollbar {
   width: 8px;
 }
@@ -92,8 +104,9 @@
 .scores-table tbody::-webkit-scrollbar-thumb:hover {
   background-color: rgba(56, 130, 206, 1);
 }
+
 .table-wrapper {
-  margin-top: 2rem; /* or any value to push the table down */
+  margin-top: 2rem;
 }
 
 /* Zebra striping */
@@ -104,6 +117,7 @@
 .scores-table tr:hover {
   background-color: rgb(74, 132, 190);
 }
+
 /* Button styling */
 .scores-actions {
   margin-top: 2rem;
@@ -122,20 +136,20 @@
   min-width: 150px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 /* Back button */
 .scores-actions button:first-child {
   background-color: #3182ce;
 }
-
 .scores-actions button:first-child:hover {
   background-color: #2563eb;
 }
+
 /* Refresh button */
 .refresh-btn {
   background-color: #d49d43;
   color: white;
 }
-
 .refresh-btn:hover {
   background-color: #fbc500;
   color: white;
@@ -147,16 +161,15 @@
   font-weight: bold;
   font-size: 1.1em;
 }
-
 .scores-table tr:nth-child(2) td:first-child {
   color: silver;
   font-weight: bold;
 }
-
 .scores-table tr:nth-child(3) td:first-child {
   color: #cd7f32; /* bronze */
   font-weight: bold;
 }
+
 /* Real-time connection indicator */
 .realtime-indicator {
   position: fixed;
@@ -170,7 +183,6 @@
   display: flex;
   align-items: center;
 }
-
 .realtime-indicator::before {
   content: '';
   display: inline-block;
@@ -182,7 +194,7 @@
   animation: pulse 2s infinite;
 }
 
-/*Seacrh Icon Stylings */
+/* Search Icon Stylings */
 .search-container {
   position: absolute;
   top: 4rem;
@@ -193,7 +205,6 @@
   z-index: 5;
   margin-top: 0.5rem;
 }
-
 .search-icon {
   font-size: 1.5rem;
   color: white;
@@ -201,11 +212,9 @@
   transition: transform 0.2s ease;
   margin-top: 40px;
 }
-
 .search-icon:hover {
   transform: scale(1.2);
 }
-
 .search-input {
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -214,21 +223,19 @@
   outline: none;
   width: 220px;
 }
+
 /* Real-time highlight animations */
 @keyframes rankUp {
   0% { background-color: rgba(76, 175, 80, 0.5); }
   100% { background-color: transparent; }
 }
-
 @keyframes rankDown {
   0% { background-color: rgba(244, 67, 54, 0.5); }
   100% { background-color: transparent; }
 }
-
 .rank-up {
   animation: rankUp 2s ease-out;
 }
-
 .rank-down {
   animation: rankDown 2s ease-out;
 }
@@ -287,126 +294,88 @@
   background-color: #0ee974;
 }
 
-/* Responsive Design for Mobile and Tablets - Keeping All Columns */
+/* Responsive Design for Mobile and Tablets - No Horizontal Scroll */
 @media (max-width: 1024px) {
-  /* Tablet styles */
   .scores-container {
     padding: 1.5rem;
   }
-  
   .table-scroll-container {
-    width: 95%;
+    width: 100%;
     max-height: 65vh;
-    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-x: hidden; /* disable horizontal scroll */
   }
-  
-  .scores-table {
-    min-width: 700px; /* Ensure table maintains minimum width */
-  }
-  
-  .scores-table th,
-  .scores-table td {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-  }
-  
-  .scores-actions {
-    flex-wrap: wrap;
-  }
-  
-  .scores-actions button {
-    padding: 0.6rem 1.2rem;
-    min-width: 120px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Large mobile/small tablet styles */
-  .scores-container h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  .search-icon{
-    margin-top: 0px;
-  }
-  .table-scroll-container {
-    width: 98%;
-    max-height: 60vh;
-  }
-  
   .scores-table th,
   .scores-table td {
     padding: 0.5rem;
     font-size: 0.85rem;
   }
-  
-  /* Make table horizontally scrollable */
-  .scores-table {
-    min-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .scores-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .search-icon {
+    margin-top: 0px;
+  }
+  .table-scroll-container {
+    width: 100%;
+    max-height: 60vh;
+    overflow-x: hidden;
+  }
+  .scores-table th,
+  .scores-table td {
+    padding: 0.4rem;
+    font-size: 0.75rem;
   }
 }
 
 @media (max-width: 480px) {
-  /* Mobile phone styles */
   .scores-container {
     padding: 1rem 0.5rem;
   }
-  
   .refresh-btn {
     color: white;
   }
-  .refresh-btn:hover{
+  .refresh-btn:hover {
     color: white;
   }
   .scores-container h1 {
     font-size: 1.7rem;
   }
-  
   .table-scroll-container {
     width: 100%;
     border-radius: 0;
     max-height: 65vh;
+    overflow-x: hidden;
   }
-  
-  .scores-table {
-    min-width: 550px; /* Minimum width to keep all columns */
-  }
-  
   .scores-table th,
   .scores-table td {
-    padding: 0.4rem;
-    font-size: 0.8rem;
+    padding: 0.3rem;
+    font-size: 0.65rem;
   }
-  
   .scores-actions {
     flex-direction: column;
     gap: 0.5rem;
     width: 90%;
     margin-top: 1rem;
   }
-  
   .scores-actions button {
     width: 100%;
     padding: 0.7rem;
   }
-  
   .fixed-actions {
     flex-direction: column;
     padding: 0.5rem;
   }
-  
   .fixed-actions button {
     width: 100%;
     margin-bottom: 0.5rem;
   }
-  
-  /* Adjust background for mobile */
   .scores-background-image {
     filter: blur(4px);
   }
-  
-  /* Smaller real-time indicator */
   .realtime-indicator {
     font-size: 0.7rem;
     padding: 3px 8px;
@@ -418,7 +387,6 @@
   .table-scroll-container {
     max-height: 50vh;
   }
-  
   .scores-actions {
     margin-top: 1rem;
   }
@@ -437,17 +405,14 @@ only screen and (min-resolution: 192dpi) {
 .table-scroll-container::-webkit-scrollbar {
   height: 8px;
 }
-
 .table-scroll-container::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
-
 .table-scroll-container::-webkit-scrollbar-thumb {
   background-color: rgba(56, 130, 206, 0.7);
   border-radius: 4px;
 }
-
 .table-scroll-container::-webkit-scrollbar-thumb:hover {
   background-color: rgba(56, 130, 206, 1);
 }

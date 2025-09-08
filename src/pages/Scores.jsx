@@ -114,7 +114,6 @@ export default function Scores() {
             <thead>
               <tr>
                 <th>Rank</th>
-                <th>Player ID</th>
                 <th>Name</th>
                 <th>Total Points</th>
               </tr>
@@ -126,7 +125,6 @@ export default function Scores() {
                   className={highlightChanges[player.PlayerId] || ''}
                 >
                   <td>{player.rank}</td>
-                  <td>{player.PlayerId}</td>
                   <td>{player.Name}</td>
                   <td>{player.Total}</td>
                 </tr>
