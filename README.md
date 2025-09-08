@@ -12,8 +12,8 @@ __Stall Management__
 - Create Stall: Add stalls with unique IDs and assign incharges.<br>
 - Edit/Delete Stall: Modify or remove stall details.<br>
 - Stall-Specific Operations:<br>
-- Stall owners can log in to add points for players.<br>
-- Points automatically update both total and game-specific columns.
+  - Stall owners can log in to add points for players.<br>
+  - Points automatically update both total and game-specific columns.
 
 Live Scores & Rankings
 Real-Time Updates: Player scores update automatically using Supabase Realtime.
