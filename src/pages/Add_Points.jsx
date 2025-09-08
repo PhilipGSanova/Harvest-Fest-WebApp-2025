@@ -86,10 +86,8 @@ export default function AddPoints() {
       // Calculate new points
       const currentPoints = verifiedPlayer[stallType] || 0;
       const currentTotal = verifiedPlayer.Total || 0;
-      const currentBalance = verifiedPlayer.Balance || 0;
       const updatedPoints = currentPoints + pointsValue;
       const updatedTotal = currentTotal + pointsValue;
-      const updatedBalance = currentBalance + pointsValue;
 
       // Update points
       const { error: updateError } = await supabase
@@ -97,7 +95,6 @@ export default function AddPoints() {
         .update({ 
           [stallType]: updatedPoints,
           Total: updatedTotal,
-          Balance: updatedBalance
         })
         .eq('PlayerId', verifiedPlayer.PlayerId);
 

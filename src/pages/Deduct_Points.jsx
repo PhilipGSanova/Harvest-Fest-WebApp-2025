@@ -79,7 +79,7 @@ export default function DeductPoints() {
             const { error: updateError } = await supabase
                 .from('PointsTable')
                 .update({ 
-                    Balance: updatedBalance,
+                    Total: updatedBalance,
                     Deducted: updatedDeducted
                 })
                 .eq('PlayerId', verifiedPlayer.PlayerId);
@@ -146,7 +146,7 @@ export default function DeductPoints() {
             <div className="player-name-display">
               Name: {verifiedPlayer?.Name || `ID: ${verifiedPlayer?.PlayerId}`}
               <br/>
-              Balance: {verifiedPlayer?.Balance || 0}
+              Total Points: {verifiedPlayer?.Total || 0}
             </div>
             <input
               type="number"
@@ -176,7 +176,7 @@ export default function DeductPoints() {
 
       {playerData && (
         <div className="player-details">
-          <h3><strong>Balance: </strong>{playerData.Balance || 0}</h3>
+          <h3><strong>Balance: </strong>{playerData.Total || 0}</h3>
         </div>
       )}
     </div>

@@ -19,7 +19,7 @@ export default function Balance() {
     try {
       const { data, error } = await supabase
         .from('PointsTable')
-        .select('PlayerId, Name, Total, Deducted, Balance')
+        .select('PlayerId, Name, Total, Deducted')
         .order('Total', { ascending: false });
 
       if (error) throw error;
@@ -130,7 +130,6 @@ export default function Balance() {
                     <th>Name</th>
                     <th>Total Points</th>
                     <th>Deducted Points</th>
-                    <th>Balance</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -144,7 +143,6 @@ export default function Balance() {
                       <td>{player.Name}</td>
                       <td>{player.Total}</td>
                       <td>{player.Deducted}</td>
-                      <td>{player.Balance}</td>
                     </tr>
                   ))}
                 </tbody>

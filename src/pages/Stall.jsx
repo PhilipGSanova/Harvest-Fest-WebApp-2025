@@ -2,17 +2,33 @@ import React, { useEffect, useState } from 'react';
 import '../styles/Stall.css';
 import { useNavigate } from 'react-router-dom';
 import { useNavigation } from '../NavigationContext';
+import supabase from '../supabaseClient';   // ✅ Missing import added
 
 export default function Stall() {
   const [stallType, setStallType] = useState('Stall');
+  const [stallIncharge, setStallIncharge] = useState('');
   const navigate = useNavigate();
   const { allowRoute } = useNavigation();
 
   useEffect(() => {
     const storedStallType = sessionStorage.getItem('stallType');
-    if (storedStallType) {
-      setStallType(storedStallType);
-    }
+    if (!storedStallType) return;
+
+    setStallType(storedStallType);
+
+    (async () => {
+      const { data, error } = await supabase
+        .from('UserAccess')
+        .select('Incharge')
+        .eq('UserType', storedStallType)
+        .maybeSingle();
+
+      if (!error && data) {
+        setStallIncharge(data.Incharge);
+      } else {
+        setStallIncharge('Incharge');
+      } 
+    })();
   }, []);
 
   const handleLogout = () => {
@@ -21,22 +37,24 @@ export default function Stall() {
   };
 
   const handleViewScores = () => {
-    allowRoute('Scores'); // Ensure the route is allowed
-    navigate('/Scores'); // Navigation to Scores page
+    allowRoute('Scores');
+    navigate('/Scores');
   };
+
   const handleViewBalance = () => {
-        allowRoute('Balance'); // Ensure the route is allowed
-        navigate('/Balance'); // Navigate to the Balance page
-    };
+    allowRoute('Balance');
+    navigate('/Balance');
+  };
+
   const handleAddPoints = () => {
-    allowRoute('AddPoints'); // Ensure the route is allowed
-    navigate('/AddPoints'); // <-- Make sure this route is configured in your router
+    allowRoute('AddPoints');
+    navigate('/AddPoints');
   };
 
   return (
     <div className="stall-container">
       <div className="stall-background-image"></div>
-      <h1>Welcome, {stallType}</h1>
+      <h1>Welcome, {stallIncharge}</h1>
       <p>This is your Stall Dashboard, here you can add points to players and view their total points</p>
 
       <div className="stall-actions">

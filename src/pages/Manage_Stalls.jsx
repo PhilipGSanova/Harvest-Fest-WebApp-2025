@@ -17,12 +17,14 @@ export default function ManageStalls() {
     id: null,
     Name: '',
     UserType: '',
-    Password: ''
+    Password: '',
+    Incharge: '',
   });
   const [newStall, setNewStall] = useState({
     Name: '',
     UserType: '',
-    Password: ''
+    Password: '',
+    Incharge: '',
   });
   const tableRef = useRef(null);
   const buttonsRef = useRef(null);
@@ -56,7 +58,7 @@ export default function ManageStalls() {
       setLoading(true);
       const { data, error } = await supabase
         .from('UserAccess')
-        .select('id, created_at, UserType, Password, Name')
+        .select('id, created_at, UserType, Password, Name, Incharge')
         .order('id', { ascending: true });
 
       if (error) throw error;
@@ -77,7 +79,7 @@ export default function ManageStalls() {
       setIsCreating(true);
       setError(null);
       
-      if (!newStall.Name || !newStall.UserType || !newStall.Password) {
+      if (!newStall.Name || !newStall.UserType || !newStall.Password || !newStall.Incharge) {
         throw new Error('All fields are required');
       }
 
@@ -92,7 +94,8 @@ export default function ManageStalls() {
         .insert([{
           Name: newStall.Name,
           UserType: newStall.UserType,
-          Password: newStall.Password
+          Password: newStall.Password,
+          Incharge: newStall.Incharge
         }])
         .select();
 
@@ -147,7 +150,8 @@ export default function ManageStalls() {
         id: data.id,
         Name: data.Name,
         UserType: data.UserType,
-        Password: data.Password
+        Password: data.Password,
+        Incharge: data.Incharge,
       });
       
       setShowEditModal(true);
@@ -163,7 +167,7 @@ export default function ManageStalls() {
       setIsCreating(true);
       setError(null);
       
-      if (!editingStall.Name || !editingStall.UserType || !editingStall.Password) {
+      if (!editingStall.Name || !editingStall.UserType || !editingStall.Password || !editingStall.Incharge) {
         throw new Error('All fields are required');
       }
 
@@ -173,7 +177,8 @@ export default function ManageStalls() {
         .update({
           Name: editingStall.Name,
           UserType: editingStall.UserType,
-          Password: editingStall.Password
+          Password: editingStall.Password,
+          Incharge: editingStall.Incharge,
         })
         .eq('id', editingStall.id);
 
@@ -277,6 +282,7 @@ const confirmDelete = async () => {
               <th>Name</th>
               <th>User Type</th>
               <th>Password</th>
+              <th>Stall Incharge</th>
               <th>Created At</th>
             </tr>
           </thead>
@@ -292,6 +298,7 @@ const confirmDelete = async () => {
                   <td>{access.Name}</td>
                   <td>{access.UserType}</td>
                   <td>{access.Password}</td>
+                  <td>{access.Incharge}</td>
                   <td>{new Date(access.created_at).toLocaleString()}</td>
                 </tr>
               ))
@@ -370,6 +377,14 @@ const confirmDelete = async () => {
               )}
             </div>
             <div className="form-group">
+              <label>Stall Incharge:</label>
+              <input
+                type="text"
+                value={newStall.Incharge}
+                onChange={(e) => setNewStall({...newStall, Incharge: e.target.value})}
+              />
+            </div>
+            <div className="form-group">
               <label>Password:</label>
               <input
                 type="password"
@@ -434,6 +449,14 @@ const confirmDelete = async () => {
                 value={editingStall.UserType}
                 onChange={(e) => setEditingStall({...editingStall, UserType: e.target.value})}
                 disabled // UserType should typically not be editable as it's used as a column name
+              />
+            </div>
+            <div className="form-group">
+              <label>Stall Incharge:</label>
+              <input
+                type="text"
+                value={editingStall.Incharge}
+                onChange={(e) => setEditingStall({...editingStall, Incharge: e.target.value})}
               />
             </div>
             <div className="form-group">
