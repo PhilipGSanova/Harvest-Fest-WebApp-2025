@@ -2,11 +2,44 @@
 
 A React + Supabase web application for real-time player ranking and stall management, designed for events or competitions. This app allows you to create players, manage stalls, add points, and track live scores, all in a responsive and user-friendly interface.
 
-Currently, two official plugins are available:
+## Features
+*Player Management*
+Create Player: Add a new player with a unique Player ID, Name, and initialize points.
+Edit Player: Update player details and scores.
+Delete Player: Remove players from the system.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Stall Management
+Create Stall: Add stalls with unique IDs and assign incharges.
 
-## Expanding the ESLint configuration
+Edit/Delete Stall: Modify or remove stall details.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Stall-Specific Operations:
+
+Stall owners can log in to add points for players.
+
+Points automatically update both total and game-specific columns.
+
+Live Scores & Rankings
+Real-Time Updates: Player scores update automatically using Supabase Realtime.
+
+Highlight Rank Changes: Animate rank movements (up/down) for quick visualization.
+
+Top 3 Rankings: Gold, Silver, and Bronze highlight.
+
+Search Functionality: Search by Player ID or Name.
+
+Responsive Design
+Works smoothly on desktop, tablet, and mobile devices.
+
+No horizontal scrolling; all columns are visible on mobile viewports.
+
+Fixed action buttons for refresh and navigation.
+
+Tech Stack
+Frontend: React.js, React Icons
+
+Backend: Supabase (PostgreSQL + Realtime)
+
+Styling: CSS3, Flexbox, responsive media queries
+
+State Management: React hooks (useState, useEffect, useRef, useCallback, useMemo)
