@@ -16,7 +16,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('https://c1.staticflickr.com/9/8317/8063591182_677f0c2148_b.jpg') center center / cover no-repeat;
+  background: url('/background.jpg') center center / cover no-repeat;
   z-index: -1;
   filter: blur(7px);
   opacity: 0.5;
