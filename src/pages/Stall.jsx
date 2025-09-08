@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/Stall.css';
 import { useNavigate } from 'react-router-dom';
 import { useNavigation } from '../NavigationContext';
-import supabase from '../supabaseClient';   // ✅ Missing import added
+import supabase from '../supabaseClient';
 
 export default function Stall() {
   const [stallType, setStallType] = useState('Stall');

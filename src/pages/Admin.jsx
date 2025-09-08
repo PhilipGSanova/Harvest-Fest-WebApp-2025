@@ -13,7 +13,7 @@ export default function Admin() {
 
   const handleCreatePlayer = () => {
     allowRoute('CreatePlayer');
-    navigate('/CreatePlayer'); // Navigate to the Create Player page
+    navigate('/CreatePlayer');
   };
 
   const handleManageStall = () => {

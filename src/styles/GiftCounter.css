@@ -9,7 +9,6 @@
   text-align: center;
 }
 
-/* Fixed full-screen background */
 .stall-background-image {
   position: fixed;
   top: 0;
@@ -63,7 +62,7 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-/* Different color for View Scores button */
+
 .stall-actions button:nth-child(2) {
   background-color: #d49d43;
 }
@@ -76,14 +75,14 @@
 .stall-actions button:nth-child(3):hover {
   background-color: #0ee974;
 }
-/* Different color for Logout button */
+
 .stall-actions button:last-child {
   background-color: #e53e3e;
 }
 .stall-actions button:last-child:hover {
   background-color: #c53030;
 }
-/* Add to Scores.css */
+
 .connection-status {
   margin-top: 1rem;
   padding: 0.5rem;
@@ -99,11 +98,11 @@
 .refresh-btn:hover {
   background-color: #fbc500;
 }
-/* Mobile layout */
+
 @media screen and (max-width: 480px) {
   .stall-actions {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* corrected from 2fr */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     width: 100%;
   }
@@ -117,13 +116,11 @@
     padding: 0.75rem;
   }
 
-  /* First row: Add Points and View Players */
   .stall-actions button:nth-child(1),
   .stall-actions button:nth-child(2) {
     grid-row: 1;
   }
 
-  /* Second row: Logout centered */
   .stall-actions button:nth-child(3),
   .stall-actions button:nth-child(4) {
     grid-row: 2;
@@ -140,7 +137,6 @@
   }
 }
 
-/* Tablet layout */
 @media screen and (max-width: 768px) {
   .stall-container h1 {
     font-size: 2rem;

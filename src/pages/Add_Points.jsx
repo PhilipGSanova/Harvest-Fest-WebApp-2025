@@ -11,13 +11,13 @@ export default function AddPoints() {
   const [isLoading, setIsLoading] = useState(false);
   const [playerData, setPlayerData] = useState(null);
   const [verifiedPlayer, setVerifiedPlayer] = useState(null);
-  const [step, setStep] = useState(1); // 1: Verify Player, 2: Add Points
+  const [step, setStep] = useState(1);
 
   useEffect(() => {
     const storedType = sessionStorage.getItem('stallType');
     if (storedType) setStallType(storedType);
 
-    // Fetch stall name from UserAccess
+    
     (async () => {
       const { data, error } = await supabase
         .from('UserAccess')
@@ -52,7 +52,7 @@ export default function AddPoints() {
         throw new Error('Player ID cannot be empty');
       }
 
-      // Check if player exists
+    
       const { data, error } = await supabase
         .from('PointsTable')
         .select('*')
@@ -65,7 +65,7 @@ export default function AddPoints() {
         throw new Error(`Player ${trimmedPlayerId} not found`);
       }
       setVerifiedPlayer(data);
-      setStep(2); // Move to next step
+      setStep(2);
     } catch (error) {
       setMessage(`❌ ${error.message}`);
     } finally {
@@ -83,13 +83,13 @@ export default function AddPoints() {
         throw new Error('Points must be a positive number');
       }
 
-      // Calculate new points
+      
       const currentPoints = verifiedPlayer[stallType] || 0;
       const currentTotal = verifiedPlayer.Total || 0;
       const updatedPoints = currentPoints + pointsValue;
       const updatedTotal = currentTotal + pointsValue;
 
-      // Update points
+      
       const { error: updateError } = await supabase
         .from('PointsTable')
         .update({ 
@@ -100,7 +100,7 @@ export default function AddPoints() {
 
       if (updateError) throw new Error(`Update failed: ${updateError.message}`);
 
-      // Fetch the updated data
+      
       const { data: updatedData, error: refetchError } = await supabase
         .from('PointsTable')
         .select('*')
@@ -113,7 +113,7 @@ export default function AddPoints() {
       setMessage(`✅ Successfully added ${pointsValue} points to ${updatedData.Name || 'Player'} (ID: ${verifiedPlayer.PlayerId})`);
       setPoints('');
       
-      // Reset after successful addition
+      
       setTimeout(() => {
         setStep(1);
         setVerifiedPlayer(null);
@@ -133,7 +133,7 @@ export default function AddPoints() {
       <h1>{stallName} - Add Points</h1>
 
       <div className="add-points-box">
-        {/* Step 1: Verify Player */}
+        {/* Verify Player */}
         {step === 1 && (
           <>
             <input
@@ -155,7 +155,7 @@ export default function AddPoints() {
           </>
         )}
 
-        {/* Step 2: Add Points */}
+        {/* Add Points */}
         {step === 2 && (
           <>
             <div className="player-name-display">

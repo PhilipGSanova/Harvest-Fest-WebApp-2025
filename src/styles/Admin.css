@@ -9,7 +9,6 @@
   text-align: center;
 }
 
-/* Fixed full-screen background */
 .admin-background-image {
   position: fixed;
   top: 0;
@@ -64,7 +63,6 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Different color for Create Stall button */
 .admin-actions button:nth-child(2) {
   background-color: #38a169;
 }
@@ -72,7 +70,6 @@
   background-color: #2f855a;
 }
 
-/* Different color for View Scores button */
 .admin-actions button:nth-child(3) {
   background-color: #d49d43;
 }
@@ -80,7 +77,6 @@
   background-color: #fbc500;
 }
 
-/* Different color for Logout button */
 .admin-actions button:last-child {
   background-color: #e53e3e;
 }
@@ -88,7 +84,6 @@
   background-color: #c53030;
 }
 
-/* Mobile layout */
 @media screen and (max-width: 480px) {
   .admin-actions {
     display: grid;
@@ -103,19 +98,16 @@
     padding: 0.75rem;
   }
 
-  /* First row: Create Player and Create Stall */
   .admin-actions button:nth-child(1),
   .admin-actions button:nth-child(2) {
     grid-row: 1;
   }
 
-  /* Second row: View Scores and Logout */
   .admin-actions button:nth-child(3),
   .admin-actions button:nth-child(4) {
     grid-row: 2;
   }
 
-  /* Column positions */
   .admin-actions button:nth-child(1),
   .admin-actions button:nth-child(3) {
     grid-column: 1;
@@ -127,7 +119,6 @@
   }
 }
 
-/* Tablet layout */
 @media screen and (max-width: 768px) {
   .admin-container h1 {
     font-size: 2rem;

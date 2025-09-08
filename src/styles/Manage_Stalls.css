@@ -71,7 +71,6 @@
   color: #ff9999;
 }
 
-/* Scrollbar styling */
 .table-wrapper::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -91,7 +90,6 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -185,7 +183,6 @@
 .modal-buttons .submit-btn:hover {
   background-color: #2f855a;
 }
-/* Delete Confirmation Dialog Styles */
 .delete-confirm-modal {
   background-color: #2d3748;
   padding: 2rem;
@@ -247,7 +244,6 @@
   opacity: 0.6;
 }
 
-/* Loading spinner for delete action */
 .deleting-spinner {
   display: inline-block;
   width: 1rem;
@@ -271,7 +267,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* Responsive styles */
 @media screen and (max-width: 768px) {
   .manage-stalls-container {
     padding: 1rem;
@@ -287,9 +282,6 @@
     font-size: 0.9rem;
   }
 }
-/* Previous styles remain the same... */
-
-/* Add these new styles at the end of the file */
 
 .selected-row {
   background-color: rgba(56, 130, 206, 0.3) !important;
@@ -347,7 +339,6 @@
   opacity: 0.6;
 }
 
-/* Responsive styles for buttons */
 @media screen and (max-width: 768px) {
   .action-buttons {
     flex-direction: column;

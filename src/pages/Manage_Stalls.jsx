@@ -83,12 +83,10 @@ export default function ManageStalls() {
         throw new Error('All fields are required');
       }
 
-      // Validate UserType format (valid SQL column name)
       if (!/^[a-zA-Z_][a-zA-Z0-9_]*$/.test(newStall.UserType)) {
         throw new Error('User Type must start with a letter or underscore and contain only letters, numbers, and underscores');
       }
 
-      // First insert into UserAccess
       const { data, error } = await supabase
         .from('UserAccess')
         .insert([{
@@ -101,13 +99,11 @@ export default function ManageStalls() {
 
       if (error) throw error;
 
-      // Then add column to PointsTable using RPC - CORRECT PARAMETER NAME
       const { error: alterError } = await supabase.rpc('add_stall_column', {
-        new_column_name: newStall.UserType  // Matches PostgreSQL function parameter
+        new_column_name: newStall.UserType
       });
 
       if (alterError) {
-        // Rollback user creation if column add fails
         await supabase
           .from('UserAccess')
           .delete()
@@ -115,7 +111,6 @@ export default function ManageStalls() {
         throw alterError;
       }
 
-      // Success - reset form and refresh
       setNewStall({ Name: '', UserType: '', Password: '' });
       setShowCreateModal(false);
       setSuccess(`Stall "${newStall.Name}" created successfully!`);
@@ -137,7 +132,6 @@ export default function ManageStalls() {
     
     try {
       setLoading(true);
-      // Fetch the current stall data
       const { data, error } = await supabase
         .from('UserAccess')
         .select('*')
@@ -171,7 +165,6 @@ export default function ManageStalls() {
         throw new Error('All fields are required');
       }
 
-      // Update the stall in UserAccess table
       const { error } = await supabase
         .from('UserAccess')
         .update({
@@ -184,7 +177,6 @@ export default function ManageStalls() {
 
       if (error) throw error;
 
-      // Success - reset and refresh
       setShowEditModal(false);
       setSuccess(`Stall "${editingStall.Name}" updated successfully!`);
       setTimeout(() => setSuccess(null), 3000);
@@ -204,7 +196,6 @@ export default function ManageStalls() {
     return;
   }
 
-  // Find the stall to be deleted
   const stall = userAccess.find(stall => stall.id === selectedStall);
   setStallToDelete(stall);
   setShowDeleteConfirm(true);
@@ -217,14 +208,12 @@ const confirmDelete = async () => {
     
     const userType = stallToDelete.UserType;
 
-    // First drop the column from PointsTable using RPC
     const { error: dropColumnError } = await supabase.rpc('drop_stall_column', {
-      col_to_drop: userType  // This must match the PostgreSQL function parameter name
+      col_to_drop: userType
     });
 
     if (dropColumnError) throw dropColumnError;
 
-    // Then delete from UserAccess
     const { error: deleteError } = await supabase
       .from('UserAccess')
       .delete()
@@ -232,7 +221,6 @@ const confirmDelete = async () => {
 
     if (deleteError) throw deleteError;
 
-    // Success - reset and refresh
     setSelectedStall(null);
     setShowDeleteConfirm(false);
     setSuccess(`Stall "${stallToDelete.Name}" and its points column deleted successfully!`);
@@ -241,10 +229,8 @@ const confirmDelete = async () => {
     
   } catch (err) {
     setError(err.message);
-    // Attempt to restore if possible
     if (err.message.includes('column was removed but stall record deletion failed')) {
       try {
-        // Try to recreate the column
         const { error: restoreError } = await supabase.rpc('add_stall_column', { 
           new_column_name: stallToDelete.UserType 
         });

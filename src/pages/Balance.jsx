@@ -30,7 +30,6 @@ export default function Balance() {
           rank: index + 1
         }));
 
-        // Calculate ranking changes
         const changes = {};
         newPlayers.forEach(newPlayer => {
           const oldPlayer = prevPlayersRef.current.find(p => p.PlayerId === newPlayer.PlayerId);
@@ -53,10 +52,8 @@ export default function Balance() {
     }
   };
   useEffect(() => {
-    // Initial fetch
     fetchBalance();
 
-    // Real-time subscription
     const subscription = supabase
       .channel('points-table-changes')
       .on(

@@ -29,7 +29,6 @@ export default function Scores() {
           rank: index + 1,
         }));
 
-        // Calculate ranking changes
         const changes = {};
         newPlayers.forEach((newPlayer) => {
           const oldPlayer = prevPlayersRef.current.find(
@@ -55,10 +54,8 @@ export default function Scores() {
   };
 
   useEffect(() => {
-    // Initial fetch
     fetchScores();
 
-    // Real-time subscription
     const subscription = supabase
       .channel('points-table-changes')
       .on(
@@ -89,7 +86,7 @@ export default function Scores() {
   });
 
   const handleBack = () => {
-    navigate('/'); // Change this path to your dashboard or home page route
+    navigate('/');
   };
 
   if (loading)

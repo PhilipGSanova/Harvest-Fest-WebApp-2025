@@ -15,7 +15,6 @@ export default function CreatePlayer() {
     }
 
     try {
-      // Check if Player ID already exists
       const { data: existingPlayers, error: fetchError, count } = await supabase
         .from('PointsTable')
         .select('*', { count: 'exact' })
@@ -30,7 +29,6 @@ export default function CreatePlayer() {
         return;
       }
 
-      // Use Supabase's rpc to call the PostgreSQL function
       const { data: stallColumns, error: colError } = await supabase
         .rpc('get_columns_starting_with', {
           table_name: 'PointsTable',
@@ -42,7 +40,6 @@ export default function CreatePlayer() {
         throw colError;
       }
 
-      // Create and insert new player
       const newPlayer = createPlayerObject(playerId, playerName, stallColumns || []);
       await insertPlayer(newPlayer);
 
@@ -59,7 +56,6 @@ export default function CreatePlayer() {
     }
   };
 
-  // Helper function to create player object
   const createPlayerObject = (id, name, stallColumns) => {
     const newPlayer = {
       PlayerId: id,
@@ -70,7 +66,6 @@ export default function CreatePlayer() {
       GiftCounter: 0,
     };
 
-    // Initialize all Stall columns to 0
     stallColumns.forEach(stallCol => {
       newPlayer[stallCol] = 0;
     });
@@ -78,7 +73,6 @@ export default function CreatePlayer() {
     return newPlayer;
   };
 
-  // Helper function to insert player
   const insertPlayer = async (player) => {
     const { error: insertError } = await supabase
       .from('PointsTable')

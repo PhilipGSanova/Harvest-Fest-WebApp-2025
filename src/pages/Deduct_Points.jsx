@@ -9,7 +9,7 @@ export default function DeductPoints() {
     const [isLoading, setIsLoading] = useState(false);
     const [playerData, setPlayerData] = useState(null);
     const [verifiedPlayer, setVerifiedPlayer] = useState(null);
-    const [step, setStep] = useState(1); // 1: Verify Player, 2: Deduct Points
+    const [step, setStep] = useState(1);
 
     useEffect(() => {
         if (message) {
@@ -31,7 +31,6 @@ export default function DeductPoints() {
                 throw new Error('Player ID cannot be empty');
             }
 
-            // Check if player exists
             const { data, error } = await supabase
                 .from('PointsTable')
                 .select('*')
@@ -44,7 +43,7 @@ export default function DeductPoints() {
                 throw new Error(`Player ${trimmedPlayerId} not found`);
             }
             setVerifiedPlayer(data);
-            setStep(2); // Move to next step
+            setStep(2);
         } catch (error) {
             setMessage(`❌ ${error.message}`);
         } finally {
@@ -86,7 +85,6 @@ export default function DeductPoints() {
 
             if (updateError) throw new Error(`Database error: ${updateError.message}`);
 
-            // Fetch updated data
             const { data: updatedData, error: refetchError } = await supabase
                 .from('PointsTable')
                 .select('*')
@@ -118,7 +116,7 @@ export default function DeductPoints() {
       <h1>Deduct Points</h1>
 
       <div className="add-points-box">
-        {/* Step 1: Verify Player */}
+        {/* Verify Player */}
         {step === 1 && (
           <>
             <input
@@ -140,7 +138,7 @@ export default function DeductPoints() {
           </>
         )}
 
-        {/* Step 2: Add Points */}
+        {/* Add Points */}
         {step === 2 && (
           <>
             <div className="player-name-display">

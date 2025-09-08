@@ -34,7 +34,7 @@ function Login() {
       allowRoute('Admin');
       navigate('/Admin');
     } else if (data.UserType.startsWith('Stall')) {
-      sessionStorage.setItem('stallType', data.UserType); // ← Store before navigating
+      sessionStorage.setItem('stallType', data.UserType);
       allowRoute('Stall');
       navigate('/Stall');
     } else if (data.UserType === 'GiftCounter'){

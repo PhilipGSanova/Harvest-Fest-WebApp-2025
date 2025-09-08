@@ -1,4 +1,3 @@
-/* Scores.css - Complete Styling with Real-Time Features */
 .scores-container {
   display: flex;
   flex-direction: column;
@@ -11,7 +10,6 @@
   color: rgba(255,255,255,1);
 }
 
-/* Background styling */
 .scores-background-image {
   position: fixed;
   top: 0;
@@ -24,7 +22,6 @@
   opacity: 0.5;
 }
 
-/* Header styling */
 .scores-container h1 {
   font-size: 2.5rem;
   color: #ffffff;
@@ -44,13 +41,12 @@
   padding-top: 2rem;
 }
 
-/* Table styling */
 .scores-table {
   width: 100%;
   border-collapse: collapse;
   align-self: center;
   background-color: rgb(31, 89, 196);
-  table-layout: fixed; /* force equal column widths */
+  table-layout: fixed;
 }
 
 .scores-table thead {
@@ -86,8 +82,8 @@
   padding: 0.75rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
-  white-space: normal;    /* allow wrapping */
-  word-break: break-word; /* break long words if needed */
+  white-space: normal;
+  word-break: break-word;
 }
 
 .scores-table tbody::-webkit-scrollbar {
@@ -109,16 +105,13 @@
   margin-top: 2rem;
 }
 
-/* Zebra striping */
 .scores-table tr:nth-child(even) {
   background-color: rgba(0, 0, 0, 0.6);
 }
-/* Hover effects */
 .scores-table tr:hover {
   background-color: rgb(74, 132, 190);
 }
 
-/* Button styling */
 .scores-actions {
   margin-top: 2rem;
   display: flex;
@@ -137,7 +130,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Back button */
 .scores-actions button:first-child {
   background-color: #3182ce;
 }
@@ -145,7 +137,6 @@
   background-color: #2563eb;
 }
 
-/* Refresh button */
 .refresh-btn {
   background-color: #d49d43;
   color: white;
@@ -155,7 +146,6 @@
   color: white;
 }
 
-/* Top 3 ranking highlights */
 .scores-table tr:nth-child(1) td:first-child {
   color: gold;
   font-weight: bold;
@@ -166,11 +156,10 @@
   font-weight: bold;
 }
 .scores-table tr:nth-child(3) td:first-child {
-  color: #cd7f32; /* bronze */
+  color: #cd7f32;
   font-weight: bold;
 }
 
-/* Real-time connection indicator */
 .realtime-indicator {
   position: fixed;
   top: 10px;
@@ -194,7 +183,6 @@
   animation: pulse 2s infinite;
 }
 
-/* Search Icon Stylings */
 .search-container {
   position: absolute;
   top: 4rem;
@@ -224,7 +212,6 @@
   width: 220px;
 }
 
-/* Real-time highlight animations */
 @keyframes rankUp {
   0% { background-color: rgba(76, 175, 80, 0.5); }
   100% { background-color: transparent; }
@@ -245,7 +232,6 @@
   100% { transform: scale(0.95); opacity: 1; }
 }
 
-/* Error message styling */
 .error {
   color: #e53e3e;
   background-color: rgba(229, 62, 62, 0.1);
@@ -254,7 +240,6 @@
   margin-bottom: 1rem;
 }
 
-/* Loading indicator */
 .loading-indicator {
   display: inline-block;
   width: 1rem;
@@ -269,7 +254,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* Fixed action buttons */
 .fixed-actions {
   position: fixed;
   bottom: 20px;
@@ -294,7 +278,6 @@
   background-color: #0ee974;
 }
 
-/* Responsive Design for Mobile and Tablets - No Horizontal Scroll */
 @media (max-width: 1024px) {
   .scores-container {
     padding: 1.5rem;
@@ -302,7 +285,7 @@
   .table-scroll-container {
     width: 100%;
     max-height: 65vh;
-    overflow-x: hidden; /* disable horizontal scroll */
+    overflow-x: hidden;
   }
   .scores-table th,
   .scores-table td {
@@ -382,7 +365,6 @@
   }
 }
 
-/* Orientation-specific adjustments */
 @media (max-width: 768px) and (orientation: landscape) {
   .table-scroll-container {
     max-height: 50vh;
@@ -392,7 +374,6 @@
   }
 }
 
-/* High-density displays */
 @media 
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-resolution: 192dpi) {
@@ -401,7 +382,6 @@ only screen and (min-resolution: 192dpi) {
   }
 }
 
-/* Horizontal scrollbar styling */
 .table-scroll-container::-webkit-scrollbar {
   height: 8px;
 }

@@ -9,19 +9,19 @@ export default function GiftCounter() {
     const { allowRoute } = useNavigation();
 
     const handleDeductPoints = () => {
-        allowRoute('DeductPoints'); // Ensure the route is allowed
-        navigate('/DeductPoints'); // Navigate to the Deduct Points page
+        allowRoute('DeductPoints');
+        navigate('/DeductPoints');
     }
     const handleViewScores = () => {
-        allowRoute('Scores'); // Ensure the route is allowed
-        navigate('/Scores'); // Navigate to the Scores page
+        allowRoute('Scores');
+        navigate('/Scores');
     };
     const handleViewBalance = () => {
-        allowRoute('Balance'); // Ensure the route is allowed
-        navigate('/Balance'); // Navigate to the Balance page
+        allowRoute('Balance');
+        navigate('/Balance');
     };
     const handleLogout = () => {
-        navigate(-1); // Navigate to the login page
+        navigate(-1);
     };
     return (
         <div className="stall-container">
