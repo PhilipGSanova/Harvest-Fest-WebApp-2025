@@ -1,6 +1,6 @@
-# React + Vite
+# React + Vite + Supabase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Supabase web application for real-time player ranking and stall management, designed for events or competitions. This app allows you to create players, manage stalls, add points, and track live scores, all in a responsive and user-friendly interface.
 
 Currently, two official plugins are available:
 
