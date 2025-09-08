@@ -96,7 +96,7 @@ export default function Scores() {
     return (
       <div className="scores-container">
         <div className="scores-background-image"></div>
-        <p>Loading scores...</p>
+        <p>Loading Player Rankings...</p>
       </div>
     );
 

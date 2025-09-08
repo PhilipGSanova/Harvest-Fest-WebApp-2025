@@ -133,10 +133,12 @@
 /* Refresh button */
 .refresh-btn {
   background-color: #d49d43;
+  color: white;
 }
 
 .refresh-btn:hover {
   background-color: #fbc500;
+  color: white;
 }
 
 /* Top 3 ranking highlights */
@@ -351,6 +353,12 @@
     padding: 1rem 0.5rem;
   }
   
+  .refresh-btn {
+    color: white;
+  }
+  .refresh-btn:hover{
+    color: white;
+  }
   .scores-container h1 {
     font-size: 1.7rem;
   }

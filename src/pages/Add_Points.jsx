@@ -6,6 +6,7 @@ export default function AddPoints() {
   const [playerId, setPlayerId] = useState('');
   const [points, setPoints] = useState('');
   const [stallType, setStallType] = useState('');
+  const [stallName, setStallName] = useState('');
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [playerData, setPlayerData] = useState(null);
@@ -15,6 +16,21 @@ export default function AddPoints() {
   useEffect(() => {
     const storedType = sessionStorage.getItem('stallType');
     if (storedType) setStallType(storedType);
+
+    // Fetch stall name from UserAccess
+    (async () => {
+      const { data, error } = await supabase
+        .from('UserAccess')
+        .select('Name')
+        .eq('UserType', storedType)
+        .maybeSingle();
+      
+      if (!error && data) {
+        setStallName(data.Name);
+      } else {
+        setStallName(storedType);
+      }
+    })();
   }, []);
 
   useEffect(() => {
@@ -117,7 +133,7 @@ export default function AddPoints() {
   return (
     <div className="add-points-container">
       <div className="add-points-background-image"></div>
-      <h1>{stallType} - Add Points</h1>
+      <h1>{stallName} - Add Points</h1>
 
       <div className="add-points-box">
         {/* Step 1: Verify Player */}
