@@ -39,9 +39,8 @@ __Tech Stack__
 ## Workflow
 ```mermaid
 flowchart TD
-  A[Home] --> B[Admin]
-  A --> C[Stall]
-  A --> D[Gift Counter]
+  A[Home] --> B[Admin] --> C[Stall] --> D[Gift Counter]
+  
 ```
 
 
