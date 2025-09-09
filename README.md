@@ -85,10 +85,10 @@ __4. Scores Page:__ View live rankings, search players, see rank changes.<br>
 __5. Edit/Delete:__ Modify player or stall information as required.<br>
 
 ## Contributing
-__1.__ Fork the repository
-__2.__ Create a new branch: ```git checkout -b feature-name.```
-__3.__ Make changes and commit: ```git commit -m "Add feature"```
-__4.__ Push to the branch: ```git push origin feature-name```
+__1.__ Fork the repository<br>
+__2.__ Create a new branch: ```git checkout -b feature-name.```<br>
+__3.__ Make changes and commit: ```git commit -m "Add feature"```<br>
+__4.__ Push to the branch: ```git push origin feature-name```<br>
 __5.__ Open a Pull request
 
 ## License
