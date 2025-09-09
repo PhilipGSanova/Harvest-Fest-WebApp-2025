@@ -36,6 +36,16 @@ __Tech Stack__
 - Styling: CSS3, Flexbox, responsive media queries<br>
 - State Management: React hooks (useState, useEffect, useRef, useCallback, useMemo)
 
+## Workflow
+```mermaid
+flowchart TD
+  A[Admin] --> |Create/Manage PLayers| B[Stall]
+  B --> |Add Points| C[Players]
+  C --> |Deduct Points| D[Gift Counter]
+  D --> |Live Updates| E[Scores Page]
+```
+
+
 ## Installation
 __1. Clone the repository:__
 ```bash
