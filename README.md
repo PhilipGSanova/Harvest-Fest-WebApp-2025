@@ -1,4 +1,8 @@
 # React + Vite + Supabase
+[![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)](https://react.dev/)  
+[![Supabase](https://img.shields.io/badge/Supabase-Backend-green?logo=supabase)](https://supabase.com/)  
+[![License: MIT + Commons Clause](https://img.shields.io/badge/License-MIT%20+%20Commons%20Clause-yellow)](./LICENSE)  
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen)]()
 
 A React + Supabase web application for real-time player ranking and stall management, designed for events or competitions. This app allows you to create players, manage stalls, add points, and track live scores, all in a responsive and user-friendly interface.
 
