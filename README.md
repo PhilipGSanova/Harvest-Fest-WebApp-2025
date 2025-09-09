@@ -78,8 +78,8 @@ index.html
 ```
 
 ## Usage
-__-1. Admin Login:__ Create players and stalls, manage details.
-__-2. Stall Login:__ Add Points for specific games for players.
+- __1. Admin Login:__ Create players and stalls, manage details.
+- __2. Stall Login:__ Add Points for specific games for players.
 __-3. Gift Counter:__ Deduct Points from players as a form of currency.
 __-4. Scores Page:__ View live rankings, search players, see rank changes.
 __-5. Edit/Delete:__ Modify player or stall information as required.
