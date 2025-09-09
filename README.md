@@ -78,11 +78,18 @@ index.html
 ```
 
 ## Usage
-- __1. Admin Login:__ Create players and stalls, manage details.
-- __2. Stall Login:__ Add Points for specific games for players.
-__-3. Gift Counter:__ Deduct Points from players as a form of currency.
-__-4. Scores Page:__ View live rankings, search players, see rank changes.
-__-5. Edit/Delete:__ Modify player or stall information as required.
+__1. Admin Login:__ Create players and stalls, manage details.<br>
+__2. Stall Login:__ Add Points for specific games for players.<br>
+__3. Gift Counter:__ Deduct Points from players as a form of currency.<br>
+__4. Scores Page:__ View live rankings, search players, see rank changes.<br>
+__5. Edit/Delete:__ Modify player or stall information as required.<br>
+
+## Contributing
+__1.__ Fork the repository
+__2.__ Create a new branch: ```git checkout -b feature-name.```
+__3.__ Make changes and commit: ```git commit -m "Add feature"```
+__4.__ Push to the branch: ```git push origin feature-name```
+__5.__ Open a Pull request
 
 ## License
 MIT License + Commons Clause Restriction
