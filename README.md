@@ -45,14 +45,14 @@ flowchart TD
   B --> E[Create Player]
   B --> F[Manage Stalls]
   B --> G[Manage Players]
-  F --> H(Create Stall)
-  F --> I(Edit Stall)
-  F --> J(Delete Stall)
-  G --> K(Edit Players)
-  G --> L(Delete Players)
-  C --> M(Add Points)
+  F --> H((Create Stall))
+  F --> I((Edit Stall))
+  F --> J((Delete Stall))
+  G --> K((Edit Players))
+  G --> L((Delete Players))
+  C --> M((Add Points))
   C --> N[View Scores]
-  D --> O(Deduct Points)
+  D --> O((Deduct Points))
   D --> N
   
   
