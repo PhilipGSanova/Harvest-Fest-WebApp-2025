@@ -39,10 +39,9 @@ __Tech Stack__
 ## Workflow
 ```mermaid
 flowchart TD
-  A[Admin] --> |Create/Manage PLayers| B[Stall]
-  B --> |Add Points| C[Players]
-  C --> |Deduct Points| D[Gift Counter]
-  D --> |Live Updates| E[Scores Page]
+  A[Home] --> B[Admin]
+  A --> C[Stall]
+  A --> D[Gift Counter]
 ```
 
 
