@@ -76,3 +76,19 @@ The application will run at http://localhost:3000
   supabaseClient.ts
 index.html
 ```
+
+## License
+MIT License + Commons Clause Restriction
+Copyright (c) 2025 Philip Gracian Sanova
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to use, copy, modify and merge the Software, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+Commons Clause Restriction
+==========================
+The Software is provided under the MIT License does not include, and the following rights are expressly excluded: the right to sell, publish, distribute, sublicense, or otherwise make the Software available as a service or product for commercial purposes.
+
+Disclaimer
+==========
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVEN SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
